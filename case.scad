@@ -37,7 +37,7 @@ module board() {
         }
         if (UART_on_dock) {
             // UART on dock
-            translate([58 - 7.62, 0, -1]) {
+            translate([58 - 12.7, 0, -1]) {
                 cube([7.62, 2.54, 30]);
             }
         }
@@ -88,7 +88,7 @@ module top() {
                 }
                 if (UART_on_dock) {
                     // UART on dock
-                    translate([58.5 - 8.62, -.5, -1]) {
+                    translate([58.5 - 13.7, -.5, -1]) {
                         cube([8.62, 3.54, 30]);
                     }
                 }
@@ -236,7 +236,7 @@ module cover() {
 
                 if (UART_on_dock) {
                     // UART on dock
-                    translate([58.5 - 8.62, -1.5, -1]) {
+                    translate([58.5 - 13.7, -1.5, -1]) {
                         cube([8.62, 4.54, 30]);
                     }
                 }
