@@ -210,7 +210,6 @@ module cover() {
                     cube([3, 2, .7]);
                 translate([29.75, -1.65, 12.1])
                     cube([3, 2, .7]);
-
             }
             union() {
                 // slit
@@ -224,15 +223,15 @@ module cover() {
                 translate([50.5, 27.5, 0])
                     cube([10.5, 9.5, 30]);
                 
-                translate([14.25, 25 + 6.06, 10])
-                    cylinder(h = 30, r = 5, center = true);
-                translate([28.25, 25 + 6.06, 10])
-                    cylinder(h = 30, r = 5, center = true);
-
-                translate([22.25, 25 - 6.06, 10])
-                    cylinder(h = 30, r = 5, center = true);
-                translate([36.25, 25 - 6.05, 10])
-                    cylinder(h = 30, r = 5, center = true);
+                for (i = [-1 : 1 : 1]) {
+                    dx = .5 * ((i + 2) % 2);
+                    echo("dx", dx, "i", i);
+                    for (j = [-1 + dx : 1 : 1 - dx ]) {
+                        echo("j", j);
+                        translate([24.75 + 16 * j, 27 + 13.85 * i, 13.1])
+                            cylinder(h = 3, r = 5, center = true);
+                    }
+                }
 
                 if (UART_on_dock) {
                     // UART on dock
@@ -245,7 +244,7 @@ module cover() {
     }
 }
 
-//board();
+board();
 cover();
 top();
 bottom();
